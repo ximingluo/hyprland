@@ -9,6 +9,7 @@
 - `mako/`：通知样式
 - `rofi/`：程序启动器
 - `kitty/`：终端配置
+- `zed/settings.json`：Zed 透明主题、语法配色、字体及编辑器设置
 - `waypaper/`：壁纸管理器配置
 - `assets/fcitx5/Hyprland-Blue/`：Fcitx5 自定义皮肤资源
 - `fcitx5/conf/classicui.conf`：Fcitx5 候选框样式和皮肤选择
@@ -216,6 +217,23 @@ Rofi 使用的主题已经包含在仓库中：
 ```text
 ~/.config/rofi/themes/glue_pro_blue.rasi
 ```
+
+### Zed
+
+`zed/settings.json` 保存当前使用的完整配置：纯黑背景约 75% 不透明度、提亮的语法配色、绿色控件和文字选区，文件树吸顶已关闭。配置在 Zed 1.18.1 上使用，Hyprland 自身的窗口透明度会继续叠加。
+
+使用前安装 Zed，并在扩展面板安装 **Catppuccin Blur**（扩展 ID：`catppuccin-blur`，当前使用 0.3.4）。配置选择的主题为 `Catppuccin Espresso (Blur) [Light]`，自定义颜色保存在 `theme_overrides` 中。
+
+代码字体使用 `JetBrainsMono Nerd Font Mono`，安装方法见上面的字体步骤。模型服务账号和 API 密钥需在目标机器单独配置。
+
+只导入 Zed 配置时，从仓库根目录执行：
+
+```bash
+mkdir -p ~/.config/zed
+cp -i zed/settings.json ~/.config/zed/settings.json
+```
+
+仓库只跟踪 `zed/settings.json`；本机的配色回退备份、扩展安装目录和运行状态不随配置上传。
 
 ## 导入配置
 

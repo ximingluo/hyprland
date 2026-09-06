@@ -52,6 +52,8 @@ fish/fish_variables
 !waybar/scripts/uptime.sh
 !waypaper/
 !waypaper/config.ini
+!zed/
+!zed/settings.json
 
 # 生成文件始终忽略
 __pycache__/
