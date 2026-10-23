@@ -47,8 +47,11 @@ fish/fish_variables
 !waybar/Waybar-3.0/style.css
 !waybar/scripts/
 !waybar/scripts/gpu-smart.sh
+!waybar/scripts/gpu-temp.sh
 !waybar/scripts/bluetooth.sh
+!waybar/scripts/launcher.sh
 !waybar/scripts/niflveil-tray.py
+!waybar/scripts/power-profile.sh
 !waybar/scripts/uptime.sh
 !waypaper/
 !waypaper/config.ini

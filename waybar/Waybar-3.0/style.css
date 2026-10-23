@@ -55,7 +55,7 @@ menu separator {
 #custom-launcher {
   font-size: 16px;
   color: #00bfff;
-  padding-right: 10px;
+  padding-right: 13px;
   padding-bottom: 2px;
   background-color: rgba(0, 0, 0, 0);
 }
@@ -88,7 +88,7 @@ menu separator {
 
 #cpu,
 #memory,
-#temperature {
+#custom-gpu-temperature {
   font-size: 12px;
   background: transparent;
   margin-top: 5px;
@@ -97,25 +97,25 @@ menu separator {
 
 #cpu {
   color: #eed49f;
-  padding: 0px 10px 0px 12px;
+  padding: 0 13px;
   border-radius: 5px 0px 0px 5px;
 }
 
 #memory {
   color: #a6da95;
-  padding: 0px 10px 0px 0px;
+  padding: 0 13px 0 0;
 }
 
 #custom-gpu-info {
   color: #f5a97f;  /* 橙色 */
-  padding: 0px 10px 0px 0px;
+  padding: 0 13px 0 0;
   font-size: 12px;
   background: transparent;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-#temperature {
+#custom-gpu-temperature {
   color: #8aadf4;
   padding: 0;
   border-radius: 0px 5px 5px 0px;
@@ -185,9 +185,37 @@ menu separator {
 #battery {
   color: #a6da95;
   font-size: 12px;
+  margin-left: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
   /* margin: 0px 10px 0px 0px; */
+}
+
+#battery.charging {
+  color: #ed8796;
+}
+
+#custom-power {
+  min-width: 16px;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 15px;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0 4px 0 10px;
+  background-color: transparent;
+}
+
+#custom-power.quiet {
+  color: #a6da95;
+}
+
+#custom-power.balanced {
+  color: #8aadf4;
+}
+
+#custom-power.performance {
+  color: #ed8796;
 }
 
 #pulseaudio,
@@ -226,7 +254,7 @@ menu separator {
 #custom-uptime {
   color: #c6a0f6;
   font-size: 12px;
-  padding-left: 6px;
+  padding-left: 13px;
   margin-top: 5px;
   margin-bottom: 5px;
   background-color: rgba(0, 0, 0, 0);
@@ -234,7 +262,7 @@ menu separator {
 
 #network {
   color: #c6a0f6;
-  font-size: 14px;
+  font-size: 13px;
   margin-top: 5px;
   margin-bottom: 5px;
   margin-right: 0px;
@@ -244,6 +272,12 @@ menu separator {
 #custom-dot {
   color: #6e738d;
   padding: 0 12px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#custom-dot-power {
+  color: #6e738d;
+  padding: 0 12px 0 6px;
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -278,7 +312,7 @@ menu separator {
 
 #custom-filler {
   color: #6e738d;
-  padding: 0 12px;
+  padding: 0 13px 0 9px;
   margin-top: 5px;
   margin-bottom: 5px;
   border-radius: 5px;
@@ -300,7 +334,7 @@ menu separator {
 }
 
 #custom-playerctl {
-  padding: 0;
+  padding: 0 0 0 13px;
   border-radius: 16px;
   margin: 5px 0;
   font-weight: normal;

@@ -27,25 +27,16 @@ toggle_state() {
 
 # 直接获取并解析 GPU 信息
 get_parsed_gpu_info() {
-    # 直接调用 nvidia-smi，避免中间脚本问题
-    read usage mem_used mem_total temp power <<< $(nvidia-smi --query-gpu=utilization.gpu,memory.used,memory.total,temperature.gpu,power.draw --format=csv,noheader,nounits | tr ',' ' ')
-    
-    mem_percentage=$((mem_used * 100 / mem_total))
-    
-    # 计算显存 GB，确保 bc 可用
-    if command -v bc >/dev/null 2>&1; then
-        mem_gb=$(echo "scale=1; $mem_used/1024" | bc)
-    else
-        # 使用 awk 作为备选
-        mem_gb=$(awk "BEGIN {printf \"%.1f\", $mem_used/1024}")
-    fi
-    
-    # 确保 mem_gb 不为空
-    if [ -z "$mem_gb" ]; then
-        mem_gb="0.0"
-    fi
-    mem_gb=$(printf "%.1f" "$mem_gb")
-    
+    # 读取 nvtop 快照中的 NVIDIA 统计
+    gpu_info=$(nvtop -s | jq -r '.[] | select(.device_name | startswith("NVIDIA")) | [.gpu_util, .mem_util, .mem_used, .temp, .power_draw] | @tsv')
+    IFS=$'\t' read -r usage mem_percentage mem_used temp power <<< "$gpu_info"
+
+    usage=${usage%%%}
+    mem_percentage=${mem_percentage%%%}
+    temp=${temp%C}
+    power=${power%W}
+    mem_gb=$(awk -v bytes="$mem_used" 'BEGIN {printf "%.1f", bytes / 1073741824}')
+
     echo "$usage $mem_percentage $mem_gb $temp $power"
 }
 

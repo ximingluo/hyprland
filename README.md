@@ -26,7 +26,10 @@ waybar/Waybar-3.0/config
 waybar/Waybar-3.0/style.css
 waybar/scripts/bluetooth.sh
 waybar/scripts/gpu-smart.sh
+waybar/scripts/gpu-temp.sh
+waybar/scripts/launcher.sh
 waybar/scripts/niflveil-tray.py
+waybar/scripts/power-profile.sh
 waybar/scripts/uptime.sh
 ```
 
@@ -261,7 +264,7 @@ fcitx5 -r -d
 
 ```bash
 chmod +x ~/.config/hypr/scripts/*.py
-chmod +x ~/.config/waybar/scripts/gpu-smart.sh
+chmod +x ~/.config/waybar/scripts/*.sh
 ```
 
 将 Fish 设为登录 Shell 是可选操作：

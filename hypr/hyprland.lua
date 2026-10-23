@@ -417,8 +417,8 @@ hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic")) -- Super+S:
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" })) -- Super+Shift+S: 将当前窗口移动到特殊工作区
 
 -- 使用主修饰键+鼠标滚轮切换工作区
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" })) -- Super+鼠标滚轮向下: 切换到上一个工作区
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" })) -- Super+鼠标滚轮向上: 切换到下一个工作区
+hl.bind(mainMod .. " + mouse_down", hl.dsp.exec_cmd("$HOME/.config/hypr/scripts/cycle_workspace.py next")) -- Super+鼠标滚轮向下: 切换到下一个工作区
+hl.bind(mainMod .. " + mouse_up", hl.dsp.exec_cmd("$HOME/.config/hypr/scripts/cycle_workspace.py prev")) -- Super+鼠标滚轮向上: 切换到上一个工作区
 
 -- 使用主修饰键+鼠标左/右键拖动来移动/调整窗口大小
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true }) -- Super+鼠标左键拖动: 移动窗口
